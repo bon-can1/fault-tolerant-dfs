@@ -1,0 +1,12 @@
+{
+  "test.txt": [
+    {
+      "chunk_id": "test.txt_chunk0",
+      "nodes": [
+        "node1",
+        "node2"
+      ],
+      "hash": "d43e5b6ce9796b690cfa4f048103f70d94f653f5aa546456d2d19c99ba4d0f14"
+    }
+  ]
+}
