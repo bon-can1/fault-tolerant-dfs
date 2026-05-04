@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DFS Control Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="background-blur background-blur-1"></div>
+  <div class="background-blur background-blur-2"></div>
+
+  <header class="hero">
+    <div class="hero-content">
+      <p class="badge">Distributed File System</p>
+      <h1>DFS Control Center</h1>
+      <p class="hero-subtitle">
+        Beautiful, real-time view of your storage cluster health and file distribution.
+      </p>
+      <div class="hero-actions">
+        <button id="refreshBtn" class="btn btn-primary">Refresh Status</button>
+        <a class="btn btn-secondary" href="#usage">Quick Start</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="panel-head">
+        <h3>Upload File</h3>
+      </div>
+      <form id="uploadForm" class="upload-form">
+        <input id="fileInput" type="file" required />
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
+      <p id="uploadMessage" class="muted"></p>
+    </section>
+
+    <section class="stats-grid">
+      <article class="card">
+        <p class="card-label">Total Nodes</p>
+        <h2 id="totalNodes">0</h2>
+      </article>
+      <article class="card">
+        <p class="card-label">Active Nodes</p>
+        <h2 id="aliveNodes">0</h2>
+      </article>
+      <article class="card">
+        <p class="card-label">Files Stored</p>
+        <h2 id="totalFiles">0</h2>
+      </article>
+      <article class="card">
+        <p class="card-label">Total Chunks</p>
+        <h2 id="totalChunks">0</h2>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h3>Storage Nodes</h3>
+        <span class="muted" id="updatedAt">Not updated yet</span>
+      </div>
+      <div id="nodesList" class="list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h3>Files, Chunks, and Downloads</h3>
+      </div>
+      <div id="filesList" class="list"></div>
+    </section>
+
+    <section id="usage" class="panel">
+      <div class="panel-head">
+        <h3>How to Use DFS</h3>
+      </div>
+      <div class="usage-grid">
+        <article class="usage-item">
+          <h4>1. Start Services</h4>
+          <p>Run coordinator and all storage nodes from your terminal.</p>
+          <code>python coordinator.py</code>
+        </article>
+        <article class="usage-item">
+          <h4>2. Upload Files</h4>
+          <p>Split and replicate files using the client command.</p>
+          <code>python client.py upload test.txt</code>
+        </article>
+        <article class="usage-item">
+          <h4>3. Monitor Health</h4>
+          <p>Use this dashboard to watch nodes and stored files in real-time.</p>
+          <code>http://localhost:5150</code>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

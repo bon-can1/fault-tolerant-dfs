@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Storage node data (VERY IMPORTANT)
+storage_node1/
+storage_node2/
+storage_node3/
+
+# Metadata file (optional, but recommended)
+metadata.json
